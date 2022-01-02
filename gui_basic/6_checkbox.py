@@ -1,0 +1,25 @@
+from tkinter import *
+
+root = Tk()
+root.title("First GUI")
+root.geometry("640x480+600+250")
+
+chkvar = IntVar() # chkvar에 int형으로 값을 저장한다
+chkbox = Checkbutton(root, text="오늘 하루 보지 않기", variable=chkvar)
+# chkbox.select() # 자동 선택 처리
+# chkbox.deselect() # 선택 해제 처리
+chkbox.pack()
+
+chkvar2 = IntVar()
+chkbox2 = Checkbutton(root, text="1주일동안 보지 않기", variable=chkvar2)
+chkbox2.pack()
+
+def btncmd():
+    print(chkvar.get()) # 체크박스가 선택 되었는지 안되었는지 확인 0 : 체크 해제, 1 : 체크
+    print(chkvar2.get())
+
+
+btn = Button(root, text="클릭", command=btncmd)
+btn.pack()
+
+root.mainloop()
